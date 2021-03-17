@@ -23,35 +23,46 @@
 				<div class="logo">
 					<img src="<?php echo base_url('assets/form_login/img/logo.png')?>"/>
 				</div>
-        <h3>Login ke akun Anda</h3>
-        <?php
-          // Cek apakah terdapat session nama message
-          if($this->session->flashdata('message')){ // Jika ada
-            echo $this->session->flashdata('message'); // Tampilkan pesannya
-          }
-        ?>
-			</div>
-			<form method="post" action="<?php echo base_url('index.php/auth/login') ?>" class="login-form">
+        <h3>Daftarkan akun Anda</h3>
+      </div>
+			<form method="post" name="myForm" action="<?php echo base_url('index.php/Auth/regis') ?>" class="login-form">
 				<div class="input-container">
 					<i class="fa fa-user"></i>
-					<input type="text" class="input" name="username" placeholder="Username"/>
+					<input type="text" class="input" name="username" id="username"  placeholder="Username" required/>
 				</div>
 				<div class="input-container">
 					<i class="fa fa-lock"></i>
-					<input type="password"  id="login-password" class="input" name="password" placeholder="Password"/>
+					<input type="password"  id="login-password" class="input" name="password" placeholder="Password" required/>
 					<i id="show-password" class="fa fa-eye"></i>
         </div>
-        <input type="submit" name="login" value="Login" class="button"/>
-        <a href="<?php echo base_url('auth/daftar'); ?>" class="register">Register</a>
-        <a href="<?php echo base_url(); ?>" class="register">Home</a>
+        <input type="submit" name="daftar" value="Daftar" class="button" onclick="checkName();">
+        <a href="<?php echo base_url('Auth/login'); ?>" class="register">Login</a>
 			</form>
 		</div>
 		<div class="attibution">
       &copy; 2021 - Information Technology - CV. Gema Insani Press
 		</div>
-	</div>
+  </div>
+  
 	<script type="text/javascript">
-	$('#background').mouseParallax({ moveFactor: 5 });
-	</script>
+    $('#background').mouseParallax({ moveFactor: 5 });
+    function checkName() {
+      var x = document.myForm;
+      var input = x.username.value;
+      var errMsgHolder = document.getElementById('nameErrMsg');
+
+      if(input.length < 3){
+        alert("minimal 3 karakter.");
+        return false;
+      }else if(!(/^\S{3,}$/.test(input))){
+        alert("Tidak boleh ada spasi.");
+        return false;
+      }else{
+        // alert("Berhasil !");
+        return undefined;
+      }
+    }
+  </script>
+
 </body>
 </html>

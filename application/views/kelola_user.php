@@ -8,49 +8,49 @@
   <body>
     <div class="container">
       <br>
-      <h1>Selamat datang <?php echo $this->session->userdata('nama'); ?></h1>
-      <h4>Anda berhasil login ke dalam aplikasi. Halaman ini hanya bisa diakses setelah login.</h4>
-      <!-- <a href="<php echo base_url('index.php/page/thanks') ?>">Thanks Page</a> | -->
+      <h4>Kelola User</h4>
       <a href="<?php echo base_url(); ?>">Home | </a>
-        
-        <a href="<?php echo base_url('Auth/kel_user') ?>">Kelola User | </a>
-
+      <a href="<?php echo base_url('page/welcome') ?>">Home Admin | </a>
       <a href="<?php echo base_url('Auth/logout') ?>">Logout</a>
       <br>
       <div class="container" style="margin-top: 80px">
         <?php echo $this->session->flashdata('notif') ?>
-        <!-- <a href="<?php echo base_url() ?>lamaran/insert/" class="btn btn-md btn-success">Tambah Lamar</a> -->
         <hr>
         <div class="table-responsive">
           <table id="table" class="table table-striped table-bordered table-hover">
             <thead>
               <tr>
                 <th>No.</th>
-                <th>Nama Pelamar</th>
-                <th>Gender</th>
-                <th>Jabatan Lamar</th>
-                <th>Tanggal Lamar</th>
-                <th>Alamat</th>
-                <th>Aksi</th>
+                <th>Username</th>
+                <th>Role</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
               <?php
                 $no = 1;
-                foreach($data_pgw as $row){
+                foreach($data_user as $row){
               ?>
                 <tr>
                   <td><?php echo $no++ ?></td>
-                  <td><?php echo $row->nama_lmr ?></td>
-                  <td><?php echo $row->jk_lmr ?></td>
-                  <td><?php echo $row->tgl_submit ?></td>
-                  <td><?php echo $row->jab_lmr ?></td>
-                  <td><?php echo $row->alamat_lmr ?></td>
-                  <td>
-                    <a href="<?php echo base_url('Welcome/formEdit/').$row->id_lmr ?>" class="btn disabled">Edit</a>
-                    <a href="<?php echo base_url('Welcome/AksiDelete/').$row->id_lmr ?>">Delete</a>
-                    <a href="<?php echo base_url('Welcome/export_tcpdf/').$row->id_lmr ?>" target="blank">Export PDF</a>
-                  </td>
+                  <td><?php echo $row->username ?></td>
+                  <td><?php echo $row->role ?></td>
+                  <!-- <td><?php echo $row->status ?></td> -->
+                  <?php
+                    if($row->role == 'admin'){
+                  ?>
+                    <td>
+                      <a href="<?php echo base_url('Auth/formEdit/').$row->user_id ?>">Edit</a>
+                      <a href="<?php echo base_url('Auth/AksiDelete/').$row->user_id ?>">Delete</a>
+                    </td>
+                  <?php
+                    }else{
+                  ?>
+                    <td>
+                      <a href="#" class="btn disabled" >Edit</a>
+                      <a href="#" class="btn disabled">Delete</a>
+                    </td>
+                  <?php } ?>
                 </tr>
               <?php } ?>
             </tbody>

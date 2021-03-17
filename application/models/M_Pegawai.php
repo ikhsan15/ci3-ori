@@ -52,6 +52,19 @@ class M_pegawai extends CI_Model{
     $result = $this->db->get('users')->row(); // Untuk mengeksekusi dan mengambil data hasil query
     return $result;
   }
+  public function UserAdd($data){
+    $this->db->insert('users',$data);
+  }
+  public function getDataUser(){
+    $this->db->select('*');
+    $this->db->from('users');
+    $query = $this->db->get();
+    return $query->result();
+  }
+  public function DeleteDataUser($user_id){
+    $this->db->where('user_id', $user_id);
+    $this->db->delete('users');
+  }
 
   
 }
