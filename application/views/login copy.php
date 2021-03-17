@@ -12,7 +12,7 @@
     }
     ?>
   </div>
-  <form method="post" action="<?php echo base_url('index.php/auth/login') ?>">
+  <form method="post" action="<?php echo base_url('Auth/login') ?>">
     <label>Username</label><br>
     <input type="text" name="username" placeholder="Username"><br><br>
     <label>Password</label><br>

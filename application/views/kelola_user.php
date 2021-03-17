@@ -10,7 +10,7 @@
       <br>
       <h4>Kelola User</h4>
       <a href="<?php echo base_url(); ?>">Home | </a>
-      <a href="<?php echo base_url('page/welcome') ?>">Home Admin | </a>
+      <a href="<?php echo base_url('Page/welcome') ?>">Home Admin | </a>
       <a href="<?php echo base_url('Auth/logout') ?>">Logout</a>
       <br>
       <div class="container" style="margin-top: 80px">

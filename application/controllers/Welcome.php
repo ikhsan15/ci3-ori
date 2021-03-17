@@ -628,7 +628,7 @@ class Welcome extends CI_Controller {
   }
   public function AksiDelete($id_lmr){
     $this->M_Pegawai->DeleteDataPgw($id_lmr);
-    redirect (base_url('page/welcome'));
+    redirect (base_url('Page/welcome'));
   }
   public function export_tcpdf($id_lmr){
     $data['data_pribadi'] = $this->M_Pegawai->getPdf($id_lmr);

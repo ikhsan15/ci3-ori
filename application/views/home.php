@@ -55,7 +55,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav text-uppercase ml-auto">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?php echo base_url('auth')?>">Login</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?php echo base_url('Auth')?>">Login</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#dataPribadi">Data Pribadi</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#dataKeluarga">Data Keluarga</a></li>
                 <li class="nav-item dropdown ">

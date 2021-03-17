@@ -31,7 +31,7 @@
           }
         ?>
 			</div>
-			<form method="post" action="<?php echo base_url('index.php/auth/login') ?>" class="login-form">
+			<form method="post" action="<?php echo base_url('Auth/login') ?>" class="login-form">
 				<div class="input-container">
 					<i class="fa fa-user"></i>
 					<input type="text" class="input" name="username" placeholder="Username"/>
@@ -42,7 +42,7 @@
 					<i id="show-password" class="fa fa-eye"></i>
         </div>
         <input type="submit" name="login" value="Login" class="button"/>
-        <a href="<?php echo base_url('auth/daftar'); ?>" class="register">Register</a>
+        <a href="<?php echo base_url('Auth/daftar'); ?>" class="register">Register</a>
         <a href="<?php echo base_url(); ?>" class="register">Home</a>
 			</form>
 		</div>
