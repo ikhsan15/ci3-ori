@@ -65,6 +65,15 @@ class M_pegawai extends CI_Model{
     $this->db->where('user_id', $user_id);
     $this->db->delete('users');
   }
+  public function EditDataUser($data, $user_id){
+    $this->db->where('user_id', $user_id);
+    $this->db->update('users', $data);
+  }
+  public function getDataUserDetail($user_id){
+    $this->db->where('user_id', $user_id);
+    $query = $this->db->get('users');
+    return $query->row();
+  }
 
   
 }

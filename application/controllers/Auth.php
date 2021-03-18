@@ -53,13 +53,36 @@ class Auth extends CI_Controller {
     redirect (base_url('Auth'));
   }
   function kel_user(){
-    $role	= '';
-    $recordPgw = $this->M_Pegawai->getDataUser();
-    $DATA = array('data_user' => $recordPgw);
+    // $role	= '';
+    $recordUser = $this->M_Pegawai->getDataUser();
+    $DATA = array('data_user' => $recordUser);
     $this->load->view('kelola_user', $DATA);
   }
   public function AksiDelete($user_id){
     $this->M_Pegawai->DeleteDataUser($user_id);
+    redirect (base_url('Auth/kel_user'));
+  }
+
+  public function formEdit($user_id){
+    $recordUser = $this->M_Pegawai->getDataUserDetail($user_id);
+    $DATA = array('data_user' => $recordUser);    
+		$this->load->view('edit_kel_user', $DATA);
+  }
+  public function AksiEdit(){
+    $user_id  = $this->input->post('user_id');
+    $username = $this->input->post('username');
+    $password = $this->input->post('password');
+    $role     = $this->input->post('role');
+    $status   = $this->input->post('status');
+
+    $DataUpdate = array(
+      'username'  => $username,
+      'password'  => $password,
+      'role'      => $role,
+      'status'    => $status,
+    );
+
+    $this->M_Pegawai->EditDataUser($DataUpdate, $user_id);
     redirect (base_url('Auth/kel_user'));
   }
 
