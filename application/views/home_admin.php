@@ -8,13 +8,15 @@
   <body>
     <div class="container">
       <br>
-      <h1>Selamat datang <?php echo $this->session->userdata('nama'); ?></h1>
+      <h1>Selamat datang <?php echo $this->session->userdata('username'); ?></h1>
       <h4>Anda berhasil login ke dalam aplikasi. Halaman ini hanya bisa diakses setelah login.</h4>
       <!-- <a href="<php echo base_url('index.php/page/thanks') ?>">Thanks Page</a> | -->
       <a href="<?php echo base_url(); ?>">Home | </a>
-        
+      <?php
+        if($this->session->userdata('role') == 'admin'){
+      ?>
         <a href="<?php echo base_url('Auth/kel_user') ?>">Kelola User | </a>
-
+      <?php } ?>
       <a href="<?php echo base_url('Auth/logout') ?>">Logout</a>
       <br>
       <div class="container" style="margin-top: 80px">

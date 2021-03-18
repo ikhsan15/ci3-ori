@@ -25,7 +25,8 @@ class Auth extends CI_Controller {
         $session = array(
           'authenticated' =>  true, // Buat session authenticated dengan value true
           'username'      =>  $user->username,  // Buat session username
-          'nama'          =>  $user->nama // Buat session authenticated
+          // 'nama'          =>  $user->nama // Buat session authenticated
+          'role'  => $user->role,
         );
         $this->session->set_userdata($session); // Buat session sesuai $session
         redirect (base_url('Page/welcome')); // Redirect ke halaman welcome

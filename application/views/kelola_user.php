@@ -36,21 +36,10 @@
                   <td><?php echo $row->username ?></td>
                   <td><?php echo $row->role ?></td>
                   <!-- <td><?php echo $row->status ?></td> -->
-                  <?php
-                    if($row->role == 'admin'){
-                  ?>
                     <td>
                       <a href="<?php echo base_url('Auth/formEdit/').$row->user_id ?>">Edit</a>
                       <a href="<?php echo base_url('Auth/AksiDelete/').$row->user_id ?>">Delete</a>
                     </td>
-                  <?php
-                    }else{
-                  ?>
-                    <td>
-                      <a href="#" class="btn disabled" >Edit</a>
-                      <a href="#" class="btn disabled">Delete</a>
-                    </td>
-                  <?php } ?>
                 </tr>
               <?php } ?>
             </tbody>
