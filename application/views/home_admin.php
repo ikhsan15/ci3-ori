@@ -8,7 +8,7 @@
   <body>
     <div class="container">
       <br>
-      <h1>Selamat datang <?php echo $this->session->userdata('username'); ?></h1>
+      <h1>Selamat datang <?php echo $this->session->userdata('username'); ?>.</h1>
       <h4>Anda berhasil login ke dalam aplikasi. Halaman ini hanya bisa diakses setelah login.</h4>
       <!-- <a href="<php echo base_url('index.php/page/thanks') ?>">Thanks Page</a> | -->
       <a href="<?php echo base_url(); ?>">Home | </a>
@@ -49,7 +49,7 @@
                   <td><?php echo $row->jab_lmr ?></td>
                   <td><?php echo $row->alamat_lmr ?></td>
                   <td>
-                    <a href="<?php echo base_url('Welcome/formEdit/').$row->id_lmr ?>" class="btn disabled">Edit</a>
+                    <a href="<?php echo base_url('Welcome/formEdit/').$row->id_lmr ?>">Edit</a>
                     <a href="<?php echo base_url('Welcome/AksiDelete/').$row->id_lmr ?>">Delete</a>
                     <a href="<?php echo base_url('Welcome/export_tcpdf/').$row->id_lmr ?>" target="blank">Export PDF</a>
                   </td>
